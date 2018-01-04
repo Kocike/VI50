@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: d214739f5ad7b9f42add8a11110e6eb8
+timeCreated: 1514657659
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Abdomen
+    100002: Armature
+    100004: calf.l
+    100006: calf.r
+    100008: Chest
+    100010: collar.l
+    100012: collar.r
+    100014: Cylinder
+    100016: Head
+    100018: Head_end
+    100020: ik.l
+    100022: ik.r
+    100024: index.l
+    100026: index.l_end
+    100028: index.r
+    100030: index.r_end
+    100032: knee.l
+    100034: knee.l_end
+    100036: knee.r
+    100038: knee.r_end
+    100040: leg.l
+    100042: leg.l_end
+    100044: leg.r
+    100046: leg.r_end
+    100048: little.l
+    100050: little.l_end
+    100052: little.r
+    100054: little.r_end
+    100056: lowerarm.l
+    100058: lowerarm.r
+    100060: middle.l
+    100062: middle.l_end
+    100064: middle.r
+    100066: middle.r_end
+    100068: Neck
+    100070: palm.l
+    100072: palm.l_end
+    100074: palm.r
+    100076: palm.r_end
+    100078: Pelvis
+    100080: //RootNode
+    100082: Spine
+    100084: thigh.l
+    100086: thigh.r
+    100088: thumb.l
+    100090: thumb.l_end
+    100092: thumb.r
+    100094: thumb.r_end
+    100096: Upperarm.l
+    100098: Upperarm.r
+    400000: Abdomen
+    400002: Armature
+    400004: calf.l
+    400006: calf.r
+    400008: Chest
+    400010: collar.l
+    400012: collar.r
+    400014: Cylinder
+    400016: Head
+    400018: Head_end
+    400020: ik.l
+    400022: ik.r
+    400024: index.l
+    400026: index.l_end
+    400028: index.r
+    400030: index.r_end
+    400032: knee.l
+    400034: knee.l_end
+    400036: knee.r
+    400038: knee.r_end
+    400040: leg.l
+    400042: leg.l_end
+    400044: leg.r
+    400046: leg.r_end
+    400048: little.l
+    400050: little.l_end
+    400052: little.r
+    400054: little.r_end
+    400056: lowerarm.l
+    400058: lowerarm.r
+    400060: middle.l
+    400062: middle.l_end
+    400064: middle.r
+    400066: middle.r_end
+    400068: Neck
+    400070: palm.l
+    400072: palm.l_end
+    400074: palm.r
+    400076: palm.r_end
+    400078: Pelvis
+    400080: //RootNode
+    400082: Spine
+    400084: thigh.l
+    400086: thigh.r
+    400088: thumb.l
+    400090: thumb.l_end
+    400092: thumb.r
+    400094: thumb.r_end
+    400096: Upperarm.l
+    400098: Upperarm.r
+    2100000: Body_Material
+    2100002: Body_vinyl
+    2100004: Body_PlasticParts
+    4300000: Cylinder
+    7400000: Armature|Idle
+    7400002: Armature|Walk
+    9500000: //RootNode
+    13700000: Cylinder
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Idle
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Walk
+      takeName: Armature|Walk
+      firstFrame: 0
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
