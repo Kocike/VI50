@@ -1,34 +1,36 @@
 fileFormatVersion: 2
-guid: ec6149f9111ae0c438574fdd9c172701
-timeCreated: 1513704373
+guid: 0d81baabdb593f14c8501f0bc177ffb4
+timeCreated: 1515071195
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Camera
-    100002: //RootNode
-    100004: Cube
-    100006: Lamp
-    400000: Camera
-    400002: //RootNode
-    400004: Cube
-    400006: Lamp
-    2000000: Camera
-    2300000: Cube
-    3300000: Cube
-    4300000: Cube
-    10800000: Lamp
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 25045221d00d3154abb8e144e28843c0, type: 2}
+    100000: Body
+    100002: Button
+    100004: Door
+    100006: //RootNode
+    400000: Body
+    400002: Button
+    400004: Door
+    400006: //RootNode
+    2100000: Material
+    2300000: Body
+    2300002: Button
+    2300004: Door
+    3300000: Body
+    3300002: Button
+    3300004: Door
+    4300000: Button
+    4300002: Door
+    4300004: Body
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -66,6 +68,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -95,7 +99,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
