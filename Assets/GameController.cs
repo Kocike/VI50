@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-    //public Vector3 spawnPosition;
+    public GameObject spawn;
     public GameObject NPC;
+
 	// Use this for initialization
 	void Start () {
         spawnNPC();
@@ -13,12 +14,16 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        var nbNPC = GameObject.FindGameObjectsWithTag("NPC").Length;
+        if (nbNPC == 0)
+        {
+            spawnNPC();
+        }
 	}
 
     void spawnNPC()
     {
         Quaternion spawnRotation = Quaternion.identity;
-        var npc = Instantiate(NPC, NPC.transform.position, NPC.transform.rotation);
+        var npc = Instantiate(NPC, spawn.transform.position, NPC.transform.rotation);
     }
 }
