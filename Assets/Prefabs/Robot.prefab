@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 114392376604029226}
   m_Layer: 0
   m_Name: Robot
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1166,8 +1166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e112c95e9203b944597cb9401f614674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target:
-  - {fileID: 0}
   RobotAnimator: {fileID: 95471578418222466}
   canvas: {fileID: 223964132628484732}
   speed: 10
