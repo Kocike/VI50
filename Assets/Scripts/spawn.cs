@@ -10,6 +10,7 @@ public class spawn : MonoBehaviour {
 	private GameObject Pivot;
 	public Animator Pivot_anim;
 	public GameObject spawner;
+	private bool draft=false;
 
 	// Use this for initialization
 	void Start () {
@@ -26,11 +27,19 @@ public class spawn : MonoBehaviour {
 			}
 			stop = !stop;
 		}
-		if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger)>0.5f) {
-			if (Pivot_anim) {
+		if (!draft && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger)>0.5f) {
+			if (Pivot_anim.GetBool("Down")==true) {
 				Pivot_anim.SetBool ("Down", !Pivot_anim.GetBool ("Down"));
 			}
-			stop = !stop;
+			stop = false;
+			draft = true;
+		}
+		if (draft && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger)>0.5f) {
+			if (Pivot_anim.GetBool("Down")==falsee) {
+				Pivot_anim.SetBool ("Down", !Pivot_anim.GetBool ("Down"));
+			}
+			stop = true;
+			draft = false;
 		}
 
 		if (!spawning && !stop) {
