@@ -10,7 +10,7 @@ public class NPCBubbleScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
     // Update is called once per frame

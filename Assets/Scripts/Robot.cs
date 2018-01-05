@@ -5,7 +5,7 @@ using UnityScript.Lang;
 
 public class Robot : MonoBehaviour {
 	
-	public Transform[] target;
+	private Transform[] target;
     public Animator RobotAnimator;
     public Canvas canvas;
     public float speed;
@@ -19,7 +19,10 @@ public class Robot : MonoBehaviour {
     void Start () {
         RobotAnimator = GetComponent<Animator>();
         RobotAnimator.SetBool("move", false);
+
         canvas.enabled = false;
+        target = new Transform[1];
+        target[0] = GameObject.FindGameObjectWithTag("ClientPosition").transform;
 
         //Pick a random product
         productWanted = (Product)(Random.Range(0, System.Enum.GetNames(typeof(Product)).Length));
