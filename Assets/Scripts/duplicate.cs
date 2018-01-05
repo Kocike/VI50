@@ -11,9 +11,9 @@ public class duplicate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (timer > 4.0f) {
+		if (timer > 3.5f) {
 			//Debug.Log("duplicate");
-			for (int i = 0; i < 3; i++) {
+			for (int i = 0; i < 2; i++) {
 				GameObject drop = (GameObject)Instantiate (gameObject, this.transform.position, Quaternion.identity);
 				drop.GetComponent<duplicate> ().enabled = false;
 			}
