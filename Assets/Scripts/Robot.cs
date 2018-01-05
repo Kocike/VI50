@@ -6,6 +6,7 @@ public class Robot : MonoBehaviour {
 	
 	public Transform[] target;
     public Animator RobotAnimator;
+    public Canvas canvas;
     public float speed;
 	private int current;
 	
@@ -13,6 +14,7 @@ public class Robot : MonoBehaviour {
 	void Start () {
         RobotAnimator = GetComponent<Animator>();
         RobotAnimator.SetBool("move", false);
+        canvas.enabled = false;
 
     }
 
@@ -32,4 +34,20 @@ public class Robot : MonoBehaviour {
             current = (current + 1) % target.Length;
         }
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            canvas.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            canvas.enabled = false;
+        }
+    }
 }
