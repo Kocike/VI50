@@ -19,10 +19,15 @@ public class spawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		Debug.Log (OVRInput.Get (OVRInput.Axis1D.PrimaryHandTrigger).ToString());
 		if (Input.GetKeyDown (KeyCode.A)) {
 			if (Pivot_anim) {
-				Debug.Log ("haha");
+				Pivot_anim.SetBool ("Down", !Pivot_anim.GetBool ("Down"));
+			}
+			stop = !stop;
+		}
+		if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger)>0.5f) {
+			if (Pivot_anim) {
 				Pivot_anim.SetBool ("Down", !Pivot_anim.GetBool ("Down"));
 			}
 			stop = !stop;
