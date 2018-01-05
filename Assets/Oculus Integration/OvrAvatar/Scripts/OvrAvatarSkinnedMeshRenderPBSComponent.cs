@@ -9,6 +9,7 @@ public class OvrAvatarSkinnedMeshRenderPBSComponent : OvrAvatarRenderComponent {
     {
         if (shader == null)
         {
+
             shader = Shader.Find("OvrAvatar/AvatarSurfaceShaderPBS");
         }
         mesh = CreateSkinnedMesh(skinnedMeshRenderPBS.meshAssetID, skinnedMeshRenderPBS.visibilityMask, thirdPersonLayer, firstPersonLayer, sortOrder);
