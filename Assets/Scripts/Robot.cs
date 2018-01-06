@@ -14,6 +14,7 @@ public class Robot : MonoBehaviour {
     private Vector3 target_pos;
     [HideInInspector]
     public Product productWanted;
+    private GameObject productDropZone;
 
     private int current;
 
@@ -21,12 +22,14 @@ public class Robot : MonoBehaviour {
     void Start() {
         RobotAnimator = GetComponent<Animator>();
         RobotAnimator.SetBool("move", false);
-
+    
         canvas.enabled = false;
         target = new Transform[] { GameObject.FindGameObjectWithTag("ClientPosition").transform };
-        target_pos = target[current].position;
-        target_pos.y = this.gameObject.transform.position.y;
         roomEntrance = GameObject.FindGameObjectWithTag("RoomEntrance").transform;
+        productDropZone = GameObject.FindGameObjectWithTag("ClientOrderTargetPosition");
+        target_pos = target[current].position;
+        target_pos.y = transform.position.y;
+
 
         //Pick a random product
         productWanted = (Product)(Random.Range(0, System.Enum.GetNames(typeof(Product)).Length));
@@ -52,12 +55,21 @@ public class Robot : MonoBehaviour {
             hasProductWanted = true;
             // Todo : GIVE MONEYZ
         }
+
+        //Check there is a delivered product
+        if (productDropZone.GetComponent<DropZoneScript>().HasProduct(productWanted))
+        {
+            hasProductWanted = true;
+            productDropZone.GetComponent<DropZoneScript>().RemoveProductOfType(productWanted);
+        }
         if (hasProductWanted)
         {
             target = new Transform[] { roomEntrance };
             target_pos = target[current].position;
             target_pos.y = this.gameObject.transform.position.y;
         }
+
+        // Movement
         if (transform.position != target_pos)
         {
             RobotAnimator.SetBool("move", true);

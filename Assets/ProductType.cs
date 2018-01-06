@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Product { 
-    Burger,
-    Beer,
-    Oil
+public class ProductType : MonoBehaviour {
+    public Product type;
 }

@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - Floor
   - ClientOrderTargetPosition
+  - Product
   layers:
   - Default
   - TransparentFX

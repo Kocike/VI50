@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44138584, g: 0.48283857, b: 0.5304603, a: 1}
+  m_IndirectSpecularColor: {r: 0.4413853, g: 0.48283815, b: 0.53045964, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -557,8 +557,9 @@ GameObject:
   m_Component:
   - component: {fileID: 353957452}
   - component: {fileID: 353957453}
+  - component: {fileID: 353957454}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ClientOrderDropZone
   m_TagString: ClientOrderTargetPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,8 +572,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 353957451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.09, y: -0.04, z: 0.05}
-  m_LocalScale: {x: 0.21020284, y: 0.650377, z: 1}
+  m_LocalPosition: {x: -2.3021, y: 0.1298, z: 0.05}
+  m_LocalScale: {x: 0.12993136, y: 0.45011395, z: 1}
   m_Children: []
   m_Father: {fileID: 1237210429}
   m_RootOrder: 0
@@ -589,6 +590,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.698461, y: 2.0938828, z: 0.16027302}
   m_Center: {x: -2.642673, y: 0.84786505, z: 0.9198649}
+--- !u!114 &353957454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 353957451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812b02ea57cbce144bb217f0eaab25bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contains: []
 --- !u!1001 &363295235
 Prefab:
   m_ObjectHideFlags: 0
@@ -1218,6 +1231,10 @@ Prefab:
     - target: {fileID: 400000, guid: 724196b348fccad47a69157b07fbb68b, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 724196b348fccad47a69157b07fbb68b, type: 3}
+      propertyPath: m_TagString
+      value: Product
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11100000, guid: 724196b348fccad47a69157b07fbb68b, type: 3}
@@ -2305,7 +2322,7 @@ GameObject:
   - component: {fileID: 1237210431}
   - component: {fileID: 1237210430}
   m_Layer: 0
-  m_Name: Cube_002
+  m_Name: CounterTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2724,6 +2741,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb6145772a581b4989a6b1c3eb28bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1392732284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1392732280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045b4f0bc9f307e439368cbcda24b116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!114 &1392732286
 MonoBehaviour:
   m_ObjectHideFlags: 0
