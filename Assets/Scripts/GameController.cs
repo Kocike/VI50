@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour {
     void spawnNPC()
     {
         Quaternion spawnRotation = Quaternion.identity;
+        //new Vector3 spawn_pos=
         var npc = Instantiate(NPC, spawn.transform.position, NPC.transform.rotation);
         float rnd = Random.Range(0.3f, 0.5f);
         npc.transform.localScale = new Vector3(rnd,rnd,rnd);

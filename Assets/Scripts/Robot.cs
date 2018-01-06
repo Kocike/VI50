@@ -11,7 +11,7 @@ public class Robot : MonoBehaviour {
     public float speed;
     private bool hasProductWanted = false;
     private Transform roomEntrance;
-
+    private Vector3 target_pos;
     [HideInInspector]
     public Product productWanted;
 
@@ -24,6 +24,8 @@ public class Robot : MonoBehaviour {
 
         canvas.enabled = false;
         target = new Transform[] { GameObject.FindGameObjectWithTag("ClientPosition").transform };
+        target_pos = target[current].position;
+        target_pos.y = this.gameObject.transform.position.y;
         roomEntrance = GameObject.FindGameObjectWithTag("RoomEntrance").transform;
 
         //Pick a random product
@@ -53,14 +55,17 @@ public class Robot : MonoBehaviour {
         if (hasProductWanted)
         {
             target = new Transform[] { roomEntrance };
+            target_pos = target[current].position;
+            target_pos.y = this.gameObject.transform.position.y;
         }
-        if (transform.position != target[current].position)
+        if (transform.position != target_pos)
         {
             RobotAnimator.SetBool("move", true);
-            Quaternion neededRotation = Quaternion.LookRotation(target[current].position - transform.position);
+            Quaternion neededRotation = Quaternion.LookRotation(target_pos - transform.position);
             var rot = Quaternion.RotateTowards(transform.rotation, neededRotation, 250 * Time.deltaTime);
             GetComponent<Rigidbody>().MoveRotation(rot);
-            var pos = Vector3.MoveTowards(transform.position, target[current].position, speed * Time.deltaTime);
+            
+            var pos = Vector3.MoveTowards(transform.position,target_pos, speed * Time.deltaTime);
             GetComponent<Rigidbody>().MovePosition(pos);
         }
         else
