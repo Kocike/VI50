@@ -48,5 +48,6 @@ public class DropZoneScript : MonoBehaviour {
     {
         var c = contains.Find(comp => comp.GetComponent<ProductType>().type == type);
         TakeAway(c);
+        Destroy(c.gameObject);
     }
 }

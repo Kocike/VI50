@@ -10,10 +10,11 @@ public class spawn : MonoBehaviour {
 	private GameObject Pivot;
 	public Animator Pivot_anim;
 	public GameObject spawner;
-    public bool touch;
+    public bool touchL=false;
+    public bool touchR = false;
 
 
-	private bool draft=false;
+    private bool draft=false;
 
 	// Use this for initialization
 	void Start () {
@@ -24,16 +25,33 @@ public class spawn : MonoBehaviour {
 
     private void OnTriggerEnter(Collider C)
     {
-        //if(C.
+        if (C.gameObject.name == "RightHandAnchor") {
+            touchR = true;
+        }
+         if(   C.gameObject.name == "LeftHandAnchor")
+        {
+            touchL = true;
+        }
     }
-
+    private void OnTriggerExit(Collider C)
+    {
+        if (C.gameObject.name == "RightHandAnchor")
+        {
+            touchR = false;
+        }
+        if(C.gameObject.name == "LeftHandAnchor")
+        {
+            touchL = false;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("TouchR : " + touchR);
+        Debug.Log("TouchL : " + touchL);
         //Debug.Log(OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger).ToString());
-
-        if (!draft && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.5f)
+        if (!draft && ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.5f)|| (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0.5f)))
         {
             draft = true;
             if (Pivot_anim)
@@ -42,7 +60,7 @@ public class spawn : MonoBehaviour {
             }
         }
 
-        if (draft && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) < 0.5f)
+        if (draft && ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) < 0.5f) || (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) < 0.5f)))
         {
             draft = false;
             if (Pivot_anim)
