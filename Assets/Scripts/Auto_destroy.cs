@@ -17,6 +17,16 @@ public class Auto_destroy : MonoBehaviour {
         }
     }
 
+    void OnTriggerEnter(Collision C)
+    {
+        Debug.Log(C.collider.gameObject.tag);
+        if (C.collider.gameObject.tag == "Floor")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+}
+
     void OnTriggerEnter(Collider C)
     {
         Debug.Log(C.gameObject.tag);
@@ -24,5 +34,3 @@ public class Auto_destroy : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
-    }
-}
