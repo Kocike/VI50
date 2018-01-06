@@ -9,7 +9,15 @@ public class Auto_destroy : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter(Collision C)
+    private void Update()
+    {
+        if (gameObject.transform.position.y < 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    void OnTriggerEnter(Collision C)
     {
         Debug.Log(C.collider.gameObject.tag);
         if (C.collider.gameObject.tag == "Floor")
