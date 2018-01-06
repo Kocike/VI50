@@ -16,9 +16,11 @@ public class SnapToClientOrderPosition : MonoBehaviour {
 
     void OnTriggerEnter(Collider C)
     {
-        Debug.Log(C.gameObject.tag);
+        //Debug.Log(C.gameObject.tag);
         if (C.gameObject.tag == "ClientOrderTargetPosition")
         {
+            Debug.Log("On est sur la cible");
+            this.gameObject.GetComponent<OVRGrabbable>().enabled = false;
             this.transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
             this.transform.position = new Vector3(transform.position.x, 1.357f, transform.position.z);
         }

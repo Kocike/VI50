@@ -10,6 +10,8 @@ public class spawn : MonoBehaviour {
 	private GameObject Pivot;
 	public Animator Pivot_anim;
 	public GameObject spawner;
+    public bool touch;
+
 
 	private bool draft=false;
 
@@ -18,6 +20,13 @@ public class spawn : MonoBehaviour {
 		timer = 0.0f;
 		Pivot_anim.SetBool ("Down", false);
 	}
+
+
+    private void OnTriggerEnter(Collider C)
+    {
+        //if(C.
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -65,6 +74,7 @@ public class spawn : MonoBehaviour {
             }
         }
 	}
+
 
 
 	void Drop()
