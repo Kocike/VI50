@@ -20,7 +20,7 @@ public class Auto_destroy : MonoBehaviour {
 
     void OnTriggerEnter(Collider C)
     {
-        //Debug.Log(C.gameObject.tag);
+        //Debug.Log(C.gameObject.name);
         if (C.gameObject.tag == "Floor")
         {
             Destroy(this.gameObject);
@@ -29,7 +29,7 @@ public class Auto_destroy : MonoBehaviour {
 
     void OnCollisionEnter(Collision C)
     {
-        //Debug.Log(C.collider.gameObject.tag);
+        Debug.Log(C.collider.gameObject.name);
         if (C.collider.gameObject.tag == "Floor")
         {
             Destroy(this.gameObject);

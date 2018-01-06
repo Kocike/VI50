@@ -158,6 +158,11 @@ public class OVRGrabbable : MonoBehaviour
         m_grabbedKinematic = GetComponent<Rigidbody>().isKinematic;
     }
 
+    public void ForceRelease()
+    {
+        m_grabbedBy.ForceRelease(this);
+    }
+
     void OnDestroy()
     {
         if (m_grabbedBy != null)
