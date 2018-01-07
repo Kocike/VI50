@@ -6,12 +6,14 @@ public class spawn : MonoBehaviour {
 	public GameObject dropPrefab;
 	private bool spawning =false;
 	private float timer;
-	private bool stop = true;
-	private GameObject Pivot;
-	public Animator Pivot_anim;
+	//private GameObject Pivot;
+	//public Animator Pivot_anim;
 	public GameObject spawner;
-    public bool touchL=false;
-    public bool touchR = false;
+    private bool touchL=false;
+    private bool touchR = false;
+
+    private bool desc = false;
+    private bool asc = false;
 
 
     private bool draft=false;
@@ -19,7 +21,7 @@ public class spawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timer = 0.0f;
-		Pivot_anim.SetBool ("Down", false);
+		//Pivot_anim.SetBool ("Down", false);
 	}
 
 
@@ -48,34 +50,38 @@ public class spawn : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger).ToString());
-        if (!draft && ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.5f)|| (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0.5f)))
+        if ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.5f) || (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0.5f))
         {
-            draft = true;
-            if (Pivot_anim)
+            asc= draft;
+            desc = !draft;
+        }
+        Debug.Log (gameObject.transform.localEulerAngles.x);
+        if (desc)
+        {
+            if (gameObject.transform.localEulerAngles.x>250 || gameObject.transform.localEulerAngles.x <79)
             {
-                Pivot_anim.SetBool("Down", !Pivot_anim.GetBool("Down"));
+                Down(1);
+            }
+            else
+            {
+                draft = true;
+                desc = false;
             }
         }
-
-        if (draft && ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) < 0.5f) || (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) < 0.5f)))
+        if (asc)
         {
-            draft = false;
-            if (Pivot_anim)
+            if (gameObject.transform.localEulerAngles.x > 1 && gameObject.transform.localEulerAngles.x <120)
             {
-                Pivot_anim.SetBool("Down", !Pivot_anim.GetBool("Down"));
+                Down(-1);
+            }
+            else
+            {
+                draft = false;
+                asc = false;
             }
         }
-
-        /**if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (Pivot_anim)
-            {
-                Pivot_anim.SetBool("Down", !Pivot_anim.GetBool("Down"));
-            }
-        }*/
         //Debug.Log(this.gameObject.transform.localRotation.x);
-        if (this.gameObject.transform.localRotation.x > 0.6f) {
+        if (this.gameObject.transform.localEulerAngles.x > 60) {
             if (!spawning)
             {
                 if (timer > 0.04f)
@@ -104,4 +110,9 @@ public class spawn : MonoBehaviour {
 		spawning = false;
 
 	}
+    void Down(float b)
+    {
+        float speed = b > 0 ? 80 - gameObject.transform.localEulerAngles.x : gameObject.transform.localEulerAngles.x;
+        this.gameObject.transform.Rotate(Vector3.right * b * Time.deltaTime * speed);
+    }
 }

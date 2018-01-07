@@ -844,6 +844,8 @@ GameObject:
   - component: {fileID: 572216470}
   - component: {fileID: 572216472}
   - component: {fileID: 572216471}
+  - component: {fileID: 572216473}
+  - component: {fileID: 572216474}
   m_Layer: 0
   m_Name: Cylinder_008
   m_TagString: Untagged
@@ -857,7 +859,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400002, guid: ed4e976431652d740b3801dbe1356141, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 572216469}
-  m_LocalRotation: {x: 0.00000031292439, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0041213036, y: -0.006096959, z: -0.30995312}
   m_LocalScale: {x: 0.31963438, y: 0.31963432, z: 0.31963435}
   m_Children:
@@ -908,6 +910,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 572216469}
   m_Mesh: {fileID: 4300012, guid: ed4e976431652d740b3801dbe1356141, type: 3}
+--- !u!114 &572216473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572216469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293eb705fdec4b7478438001d0193576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPrefab: {fileID: 1514787860881458, guid: c383f6edc9ad49f4d87967aca651eeee, type: 2}
+  spawner: {fileID: 172236474}
+--- !u!136 &572216474
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572216469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.2347648
+  m_Height: 7.026304
+  m_Direction: 2
+  m_Center: {x: 0.04438638, y: 0, z: -4.927209}
 --- !u!1 &636275586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1227,8 @@ GameObject:
   - component: {fileID: 725974954}
   - component: {fileID: 725974956}
   - component: {fileID: 725974955}
+  - component: {fileID: 725974958}
+  - component: {fileID: 725974957}
   m_Layer: 0
   m_Name: Cylinder_012
   m_TagString: Untagged
@@ -1263,6 +1293,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 725974953}
   m_Mesh: {fileID: 4300000, guid: ed4e976431652d740b3801dbe1356141, type: 3}
+--- !u!136 &725974957
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 725974953}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.2347648
+  m_Height: 7.026304
+  m_Direction: 2
+  m_Center: {x: 0.04438638, y: 0, z: -4.927209}
+--- !u!114 &725974958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 725974953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293eb705fdec4b7478438001d0193576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPrefab: {fileID: 1370175618910412, guid: 5991999cd25fdea4a91afd600ffb26b7, type: 2}
+  spawner: {fileID: 1772814679}
 --- !u!1001 &766723788
 Prefab:
   m_ObjectHideFlags: 0
@@ -2049,7 +2105,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1145399314}
   - component: {fileID: 1145399316}
-  - component: {fileID: 1145399315}
   - component: {fileID: 1145399317}
   m_Layer: 0
   m_Name: Oil_pivot
@@ -2072,22 +2127,6 @@ Transform:
   m_Father: {fileID: 1234090938}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1145399315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1145399313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293eb705fdec4b7478438001d0193576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 1514787860881458, guid: c383f6edc9ad49f4d87967aca651eeee, type: 2}
-  Pivot_anim: {fileID: 1145399316}
-  spawner: {fileID: 172236474}
-  touchL: 0
-  touchR: 0
 --- !u!95 &1145399316
 Animator:
   serializedVersion: 3
@@ -2869,7 +2908,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 9a6d1b5b757e73941bfc934e3bcb839e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.57
+      value: 17.622
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9a6d1b5b757e73941bfc934e3bcb839e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3301,7 +3340,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1459381046}
   - component: {fileID: 1459381048}
-  - component: {fileID: 1459381047}
   m_Layer: 0
   m_Name: Beer_pivot
   m_TagString: Untagged
@@ -3323,22 +3361,6 @@ Transform:
   m_Father: {fileID: 1234090938}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1459381047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1459381045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293eb705fdec4b7478438001d0193576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 1370175618910412, guid: 5991999cd25fdea4a91afd600ffb26b7, type: 2}
-  Pivot_anim: {fileID: 1459381048}
-  spawner: {fileID: 1772814679}
-  touchL: 0
-  touchR: 0
 --- !u!95 &1459381048
 Animator:
   serializedVersion: 3
@@ -4255,7 +4277,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1834477745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.46}
   m_LocalScale: {x: 0.059454743, y: 0.0049829204, z: 1}
   m_Children:
   - {fileID: 675703425}
