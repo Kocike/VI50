@@ -55,7 +55,7 @@ public class spawn : MonoBehaviour {
             asc= draft;
             desc = !draft;
         }
-        Debug.Log (gameObject.transform.localEulerAngles.x);
+        //Debug.Log (gameObject.transform.localEulerAngles.x);
         if (desc)
         {
             if (gameObject.transform.localEulerAngles.x>250 || gameObject.transform.localEulerAngles.x <79)
