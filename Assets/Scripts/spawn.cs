@@ -48,8 +48,6 @@ public class spawn : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("TouchR : " + touchR);
-        Debug.Log("TouchL : " + touchL);
         //Debug.Log(OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger).ToString());
         if (!draft && ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.5f)|| (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0.5f)))
         {
@@ -69,13 +67,13 @@ public class spawn : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        /**if (Input.GetKeyDown(KeyCode.A))
         {
             if (Pivot_anim)
             {
                 Pivot_anim.SetBool("Down", !Pivot_anim.GetBool("Down"));
             }
-        }
+        }*/
         //Debug.Log(this.gameObject.transform.localRotation.x);
         if (this.gameObject.transform.localRotation.x > 0.6f) {
             if (!spawning)

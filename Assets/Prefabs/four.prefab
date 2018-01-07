@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4722081960880122}
   - component: {fileID: 95283757750947044}
   - component: {fileID: 114653080673377470}
+  - component: {fileID: 136436352799285170}
   m_Layer: 0
   m_Name: DoorPivot
   m_TagString: Untagged
@@ -71,6 +72,8 @@ GameObject:
   - component: {fileID: 4249821890938060}
   - component: {fileID: 33948711388270014}
   - component: {fileID: 23853110434973402}
+  - component: {fileID: 136938627357360232}
+  - component: {fileID: 114103546899528092}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -158,7 +161,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1257352841033776}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.9900006, y: -0.89999986, z: 1.4799993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -185,9 +188,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1204115131701118}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 30.4, y: -1.8, z: -8.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.037161, y: 1.46, z: -0.31429}
+  m_LocalScale: {x: 0.16036496, y: 0.36983806, z: 0.3376054}
   m_Children:
   - {fileID: 4586745260806060}
   - {fileID: 4901647797103034}
@@ -209,7 +212,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0d81baabdb593f14c8501f0bc177ffb4, type: 3}
+  - {fileID: 2100000, guid: 6bcc7627175868046aeb51a10fd0514b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -243,7 +246,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0d81baabdb593f14c8501f0bc177ffb4, type: 3}
+  - {fileID: 2100000, guid: 93b06e85a5820124abc26119c3ed3547, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -277,7 +280,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0d81baabdb593f14c8501f0bc177ffb4, type: 3}
+  - {fileID: 2100000, guid: d536dc50d2243e342b6e85b1cfae1bf1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -368,7 +371,7 @@ Animator:
   m_GameObject: {fileID: 1257352841033776}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6ac09f8a9acdb484488a10f3b8771d7e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2113dcfaa7531624b8bdaeab9d2fef74, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -393,15 +396,52 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114103546899528092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1348057193911248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87abdf0e97b7ec7479e58fa61c5a2d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114653080673377470
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1257352841033776}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92b7b685a73e7e0499380afb9603179e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OvenAnimator: {fileID: 95283757750947044}
+--- !u!136 &136436352799285170
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257352841033776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.29173443
+  m_Height: 3.5584593
+  m_Direction: 0
+  m_Center: {x: -1.9783732, y: 1.6409819, z: 0.5168206}
+--- !u!136 &136938627357360232
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1348057193911248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.16587718
+  m_Height: 1.5496817
+  m_Direction: 0
+  m_Center: {x: -0.0015936219, y: -0.3355837, z: 1.4193237}
