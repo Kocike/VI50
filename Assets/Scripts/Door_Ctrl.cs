@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Oven_Ctrl : MonoBehaviour {
+public class Door_Ctrl : MonoBehaviour {
 	private bool touchL=false;
 	private bool touchR = false;
 	private bool open = false;
