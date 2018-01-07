@@ -50,7 +50,7 @@ public class spawn : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.5f) || (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0.5f))
+        if ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0.5f) || (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.5f))
         {
             asc= draft;
             desc = !draft;
@@ -113,6 +113,7 @@ public class spawn : MonoBehaviour {
     void Down(float b)
     {
         float speed = b > 0 ? 80 - gameObject.transform.localEulerAngles.x : gameObject.transform.localEulerAngles.x;
+        speed = Mathf.Max(speed, 1);
         this.gameObject.transform.Rotate(Vector3.right * b * Time.deltaTime * speed);
     }
 }

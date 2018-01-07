@@ -14,7 +14,7 @@ public class Door_Ctrl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.5f)|| (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0.5f))
+		if ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0.5f)|| (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.5f))
 		{
 			//Debug.Log ("Hello");
 			closing = open;
@@ -62,7 +62,8 @@ public class Door_Ctrl : MonoBehaviour {
 	}
 	void Opening(float b){
 		float speed = b > 0 ? 359-gameObject.transform.localEulerAngles.x : gameObject.transform.localEulerAngles.x>270 ? gameObject.transform.localEulerAngles.x-269 : 90 + gameObject.transform.localEulerAngles.x;
-		this.gameObject.transform.Rotate(Vector3.right *b* Time.deltaTime*speed) ;
+        speed = Mathf.Max(speed, 1);
+        this.gameObject.transform.Rotate(Vector3.right *b* Time.deltaTime*speed) ;
 	}
 
 }

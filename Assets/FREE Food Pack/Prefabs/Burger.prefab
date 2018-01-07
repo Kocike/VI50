@@ -25,9 +25,11 @@ GameObject:
   - component: {fileID: 122147848533593126}
   - component: {fileID: 64640205768745936}
   - component: {fileID: 114078978122181388}
+  - component: {fileID: 114658723035426996}
+  - component: {fileID: 114222599768709694}
   m_Layer: 0
   m_Name: Burger
-  m_TagString: Untagged
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011448446114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.4379, y: 0.7605, z: 0.0168}
+  m_LocalPosition: {x: 14.414, y: 0.7605, z: 0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,7 +97,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -131,13 +133,36 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+--- !u!114 &114222599768709694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011448446114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045b4f0bc9f307e439368cbcda24b116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+--- !u!114 &114658723035426996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011448446114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb6145772a581b4989a6b1c3eb28bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!122 &122147848533593126
 Halo:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011448446114}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Color:
     serializedVersion: 2
     rgba: 4293246588
