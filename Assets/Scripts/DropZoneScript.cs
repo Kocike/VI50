@@ -10,7 +10,7 @@ public class DropZoneScript : MonoBehaviour {
         //Debug.Log(C.gameObject.tag);
         if (C.gameObject.tag == "Product")
         {
-            Debug.Log("I contain something");
+            //Debug.Log("I contain something");
             if (!contains.Contains(C.gameObject)) { contains.Add(C.gameObject); }
         }
     }
@@ -26,6 +26,12 @@ public class DropZoneScript : MonoBehaviour {
             if(c.GetComponent<ProductType>().type == p )
             {
                 return true;
+            }
+
+            // if it's a glass check what is inside
+            if(c.GetComponent<ProductType>().type == Product.Glass)
+            {
+                return c.GetComponent<ContentFinder>().getContentType() == p;
             }
         }
         return false;
