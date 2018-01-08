@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 114416974106146182}
   - component: {fileID: 114003201022709334}
   - component: {fileID: 114357424955387094}
+  - component: {fileID: 222582144881132040}
+  - component: {fileID: 114489010208768156}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1170,6 +1172,7 @@ MonoBehaviour:
   canvas: {fileID: 223964132628484732}
   speed: 10
   productWanted: 0
+  gameController: {fileID: 0}
 --- !u!114 &114416974106146182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1191,6 +1194,39 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114489010208768156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000438678096970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.99264705, g: 0.8180781, b: 0.24816176, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: ad4ad16462c0a1940912d56ad68c6916, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
 --- !u!136 &136443737195106784
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1288,6 +1324,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1852258370928178}
+--- !u!222 &222582144881132040
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000438678096970}
 --- !u!223 &223964132628484732
 Canvas:
   m_ObjectHideFlags: 1
