@@ -15,8 +15,8 @@ public class ContentFinder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(oilCount);
-        Debug.Log(getContentType());
+        //Debug.Log(oilCount);
+        //Debug.Log(getContentType());
     }
 
     private void OnTriggerEnter(Collider other)
