@@ -6,6 +6,7 @@ public class spawn : MonoBehaviour {
 	public GameObject dropPrefab;
 	private bool spawning =false;
 	private float timer;
+    public GameObject halo_object;
 	//private GameObject Pivot;
 	//public Animator Pivot_anim;
 	public GameObject spawner;
@@ -50,10 +51,14 @@ public class spawn : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+         Component halo = halo_object.GetComponent("Halo");
+         halo.GetType().GetProperty("enabled").SetValue(halo, (touchR || touchL), null);
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             asc = draft;
             desc = !draft;
+            touchR = !touchR;
         }
         if ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0.5f) || (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.5f))
         {

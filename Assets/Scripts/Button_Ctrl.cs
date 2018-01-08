@@ -16,8 +16,9 @@ public class Button_Ctrl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        Component halo = this.gameObject.GetComponent("Halo");
+        halo.GetType().GetProperty("enabled").SetValue(halo, (!Locked), null);
+    }
 
     private void OnTriggerEnter(Collider C)
     {
