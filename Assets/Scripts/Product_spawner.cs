@@ -10,8 +10,11 @@ public class Product_spawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        if (count < nb_desired)
+        {
+            GameObject spawning = (GameObject)Instantiate(Product, SpawnAt.transform.position, Quaternion.identity);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
