@@ -52,7 +52,15 @@ public class DropZoneScript : MonoBehaviour {
 
     public void RemoveProductOfType(Product type)
     {
-        var c = contains.Find(comp => comp.GetComponent<ProductType>().type == type);
+        GameObject c;
+        if (type == Product.Beer ||type == Product.Oil)
+        {
+            c = contains.Find(comp => comp.GetComponent<ProductType>().type == Product.Glass);
+        }
+        else
+        {
+            c = contains.Find(comp => comp.GetComponent<ProductType>().type == type);
+        }
         TakeAway(c);
         Destroy(c.gameObject);
     }
