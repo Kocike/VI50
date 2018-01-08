@@ -2,67 +2,95 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Oven_Ctrl : MonoBehaviour {
-	private bool touchL=false;
-	private bool touchR = false;
-	private bool open = false;
-	private bool opening = false;
-	private bool closing = false;
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0.5f)|| (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0.5f))
-		{
-			//Debug.Log ("Hello");
-			closing = open;
-			opening = !open;
-		}
-		//Debug.Log (gameObject.transform.localEulerAngles.x);
-		if (opening) {
-			if (250<gameObject.transform.localEulerAngles.x && gameObject.transform.localEulerAngles.x <=357) {
-				Opening (1);
-			} else {
-				open = true;
-				opening = false;
-			}
-		}
-		if (closing) {
-			if (gameObject.transform.localEulerAngles.x >270 || gameObject.transform.localEulerAngles.x <50) {
-				Opening (-1);
-			} else {
-				open = false;
-				closing = false;
-			}
-		}
-	}
+public class Oven_Ctrl : MonoBehaviour
+{
+    public Door_Ctrl door_ctrl;
+    public Product ToCook;
+    public Product Cooked;
+    private bool empty = true;
+    private float timer=0.0f;
+    private bool isCooking=false;
+    public float CookingTime;
+    public Button_Ctrl button;
+    [HideInInspector]
+    public List<GameObject> contains = new List<GameObject>();
 
-	private void OnTriggerEnter(Collider C)
-	{
-		if (C.gameObject.name == "RightHandAnchor") {
-			touchR = true;
-		}
-		if(   C.gameObject.name == "LeftHandAnchor")
-		{
-			touchL = true;
-		}
-	}
-	private void OnTriggerExit(Collider C)
-	{
-		if (C.gameObject.name == "RightHandAnchor")
-		{
-			touchR = false;
-		}
-		if(C.gameObject.name == "LeftHandAnchor")
-		{
-			touchL = false;
-		}
-	}
-	void Opening(float b){
-		float speed = b > 0 ? 359-gameObject.transform.localEulerAngles.x : gameObject.transform.localEulerAngles.x>270 ? gameObject.transform.localEulerAngles.x-269 : 90 + gameObject.transform.localEulerAngles.x;
-		this.gameObject.transform.Rotate(Vector3.right *b* Time.deltaTime*speed) ;
-	}
+    void OnTriggerEnter(Collider C)
+    {
+        //Debug.Log(C.gameObject.tag);
+        if (C.gameObject.tag == "Product")
+        {
+            //Debug.Log("I contain something");
+            if (!contains.Contains(C.gameObject)) { contains.Add(C.gameObject); }
+        }
+        Unlock_test();
+    }
+
+    private void TakeAway(GameObject other)
+    {
+        if (contains.Contains(other.gameObject))
+        {
+            contains.Remove(other.gameObject);
+        }
+    }
+
+    private bool HasProduct(Product p)
+    {
+        foreach (GameObject c in contains)
+        {
+            if (c.GetComponent<ProductType>().type == p)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void Unlock_test()
+    {
+        if (door_ctrl.closed && HasProduct(ToCook))
+        {
+            button.Locked = false;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isCooking)
+        {
+            timer += Time.deltaTime;
+        }
+        if (timer >= CookingTime)
+        {
+            EndCook();
+        }
+    }
+
+    private void EndCook()
+    {
+        //Debug.Log("Finito cookito");
+        foreach (GameObject c in contains)
+        {
+            if (c.GetComponent<ProductType>().type == ToCook)
+            {
+                c.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+                c.GetComponent<ProductType>().type = Cooked;
+            }
+        }
+        isCooking = false;
+        door_ctrl.STOP = false;
+        button.Unpressed();
+
+    }
+
+    public void Cook()
+    {
+        button.Locked = true;
+        isCooking = true;
+        door_ctrl.STOP = true;
+        timer = 0.0f;
+        
+    }
 
 }

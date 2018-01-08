@@ -31,21 +31,22 @@ public class Robot : MonoBehaviour {
         target_pos.y = transform.position.y;
 
 
-        //Pick a random product
-        productWanted = (Product)(Random.Range(0, System.Enum.GetNames(typeof(Product)).Length));
-
-        switch (productWanted)
+        //Pick a random product > 2 car on ne veut pas de verre vide ni de burger pas cuit
+        productWanted = (Product)(Random.Range(2, System.Enum.GetNames(typeof(Product)).Length));
+        Debug.Log(productWanted);
+        gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Sprites/"+productWanted);
+       /** switch (productWanted)
         {
             case Product.Beer:
-                gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("beer");
+                gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Sprites/beer");
                 break;
             case Product.Burger:
-                gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("burger");
+                gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Sprites/burger");
                 break;
             case Product.Oil:
-                gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("oil");
+                gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Sprites/oil");
                 break;
-        }
+        }*/
     }
 
     // Update is called once per frame

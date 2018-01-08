@@ -5,27 +5,31 @@ using UnityEngine;
 public class Door_Ctrl : MonoBehaviour {
 	private bool touchL=false;
 	private bool touchR = false;
-	private bool open = false;
+	
 	private bool opening = false;
 	private bool closing = false;
-	// Use this for initialization
-	void Start () {
+    public bool STOP = false;
+
+    [HideInInspector]
+    public bool closed = true;
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0.5f)|| (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.5f))
+		if (!STOP && ((touchL && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0.5f)|| (touchR && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.5f)))
 		{
 			//Debug.Log ("Hello");
-			closing = open;
-			opening = !open;
+			closing = !closed;
+			opening = closed;
 		}
 		//Debug.Log (gameObject.transform.localEulerAngles.x);
 		if (opening) {
 			if (250<gameObject.transform.localEulerAngles.x && gameObject.transform.localEulerAngles.x <=357) {
 				Opening (1);
 			} else {
-				open = true;
+				closed= false;
 				opening = false;
 			}
 		}
@@ -33,7 +37,7 @@ public class Door_Ctrl : MonoBehaviour {
 			if (gameObject.transform.localEulerAngles.x >270 || gameObject.transform.localEulerAngles.x <50) {
 				Opening (-1);
 			} else {
-				open = false;
+                closed = true;
 				closing = false;
 			}
 		}
