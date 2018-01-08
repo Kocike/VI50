@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityScript.Lang;
+using UnityEngine.UI;
+
 
 public class Robot : MonoBehaviour {
 	
@@ -17,6 +19,7 @@ public class Robot : MonoBehaviour {
     private GameObject productDropZone;
     public GameController gameController;
 
+    private bool exiting;
     private int current;
 
     // Use this for initialization
@@ -30,6 +33,7 @@ public class Robot : MonoBehaviour {
         productDropZone = GameObject.FindGameObjectWithTag("ClientOrderTargetPosition");
         target_pos = target[current].position;
         target_pos.y = transform.position.y;
+        exiting = false;
 
 
         //Pick a random product > 2 car on ne veut pas de verre vide ni de burger pas cuit
@@ -56,6 +60,8 @@ public class Robot : MonoBehaviour {
         {
             hasProductWanted = true;
             gameController.addToScore(1);
+            Debug.Log("K !");
+            StartCoroutine(SayThanksAndLeave());
         }
 
         //Check there is a delivered product
@@ -64,10 +70,11 @@ public class Robot : MonoBehaviour {
             hasProductWanted = true;
             gameController.addToScore(1);
             productDropZone.GetComponent<DropZoneScript>().RemoveProductOfType(productWanted);
+            StartCoroutine(SayThanksAndLeave());
         }
 
         // Go back to the room entrance
-        if (hasProductWanted)
+        if (exiting)
         {
             target = new Transform[] { roomEntrance };
             target_pos = target[current].position;
@@ -97,6 +104,20 @@ public class Robot : MonoBehaviour {
         }
 	}
 
+    IEnumerator SayThanksAndLeave()
+    {
+        Debug.Log("Thanks");
+
+        gameObject.GetComponentInChildren<Image>().enabled = false;
+        gameObject.GetComponentInChildren<Text>().enabled = true;
+        gameObject.GetComponentInChildren<Text>().text = "Thanks !";
+
+        //canvas.GetComponent<Text>().text = "Thank you !";
+        //canvas.GetComponent<Text>().enabled = true;
+        yield return new WaitForSeconds(3f);
+        Debug.Log("Bye !");
+        exiting = true;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
