@@ -29,7 +29,7 @@ public class Auto_destroy : MonoBehaviour {
 
     void OnCollisionEnter(Collision C)
     {
-        Debug.Log(C.collider.gameObject.name);
+        //Debug.Log(C.collider.gameObject.name);
         if (C.collider.gameObject.tag == "Floor")
         {
             Destroy(this.gameObject);

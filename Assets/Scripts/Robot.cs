@@ -15,6 +15,7 @@ public class Robot : MonoBehaviour {
     [HideInInspector]
     public Product productWanted;
     private GameObject productDropZone;
+    public GameController gameController;
 
     private int current;
 
@@ -22,7 +23,7 @@ public class Robot : MonoBehaviour {
     void Start() {
         RobotAnimator = GetComponent<Animator>();
         RobotAnimator.SetBool("move", false);
-    
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         canvas.enabled = false;
         target = new Transform[] { GameObject.FindGameObjectWithTag("ClientPosition").transform };
         roomEntrance = GameObject.FindGameObjectWithTag("RoomEntrance").transform;
@@ -54,15 +55,18 @@ public class Robot : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.K))
         {
             hasProductWanted = true;
-            // Todo : GIVE MONEYZ
+            gameController.addToScore(1);
         }
 
         //Check there is a delivered product
         if (productDropZone.GetComponent<DropZoneScript>().HasProduct(productWanted))
         {
             hasProductWanted = true;
+            gameController.addToScore(1);
             productDropZone.GetComponent<DropZoneScript>().RemoveProductOfType(productWanted);
         }
+
+        // Go back to the room entrance
         if (hasProductWanted)
         {
             target = new Transform[] { roomEntrance };

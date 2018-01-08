@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23054357671278520}
   - component: {fileID: 54841157065667708}
   - component: {fileID: 114345885808421984}
+  - component: {fileID: 114041900093221952}
   m_Layer: 0
   m_Name: Beer
   m_TagString: Untagged
@@ -100,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &114041900093221952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1370175618910412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045b4f0bc9f307e439368cbcda24b116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
 --- !u!114 &114345885808421984
 MonoBehaviour:
   m_ObjectHideFlags: 1
