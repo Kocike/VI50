@@ -76,6 +76,7 @@ public class Oven_Ctrl : MonoBehaviour
             {
                 c.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
                 c.GetComponent<ProductType>().type = Cooked;
+                c.GetComponent<ParticleSystem>().Play();
             }
         }
         isCooking = false;

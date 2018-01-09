@@ -38,7 +38,7 @@ public class Robot : MonoBehaviour {
 
         //Pick a random product > 2 car on ne veut pas de verre vide ni de burger pas cuit
         productWanted = (Product)(Random.Range(2, System.Enum.GetNames(typeof(Product)).Length));
-        Debug.Log(productWanted);
+        //Debug.Log(productWanted);
         gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Sprites/"+productWanted);
        /** switch (productWanted)
         {
@@ -60,7 +60,7 @@ public class Robot : MonoBehaviour {
         {
             hasProductWanted = true;
             gameController.addToScore(1);
-            Debug.Log("K !");
+            //Debug.Log("K !");
             StartCoroutine(SayThanksAndLeave());
         }
 
@@ -106,7 +106,7 @@ public class Robot : MonoBehaviour {
 
     IEnumerator SayThanksAndLeave()
     {
-        Debug.Log("Thanks");
+        //Debug.Log("Thanks");
 
         gameObject.GetComponentInChildren<Image>().enabled = false;
         gameObject.GetComponentInChildren<Text>().enabled = true;
@@ -115,7 +115,7 @@ public class Robot : MonoBehaviour {
         //canvas.GetComponent<Text>().text = "Thank you !";
         //canvas.GetComponent<Text>().enabled = true;
         yield return new WaitForSeconds(3f);
-        Debug.Log("Bye !");
+       // Debug.Log("Bye !");
         exiting = true;
     }
     private void OnTriggerEnter(Collider other)
