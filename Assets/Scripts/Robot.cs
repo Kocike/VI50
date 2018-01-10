@@ -12,8 +12,11 @@ public class Robot : MonoBehaviour {
     public Canvas canvas;
     public float speed;
     private bool hasProductWanted = false;
+
+    private GameObject targetObject;
     private Transform roomEntrance;
     private Vector3 target_pos;
+
     [HideInInspector]
     public Product productWanted;
     private GameObject productDropZone;
@@ -32,7 +35,24 @@ public class Robot : MonoBehaviour {
         RobotAnimator.SetBool("move", false);
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         canvas.enabled = false;
-        target = new Transform[] { GameObject.FindGameObjectWithTag("ClientPosition").transform };
+
+        // Pick a random (free) client position
+        var positions = GameObject.FindGameObjectsWithTag("ClientPosition");
+        foreach (GameObject pos in positions)
+        {
+            //Debug.Log(pos.ToString());
+            if (pos.GetComponent<ClientPosition>().IsFree())
+            {
+                pos.GetComponent<ClientPosition>().setClient(this);
+                target = new Transform[] { pos.transform };
+                Debug.Log(target);
+                targetObject = pos;
+                break;
+            }
+        }
+
+
+        //target = new Transform[] { GameObject.FindGameObjectWithTag("ClientPosition").transform };
         roomEntrance = GameObject.FindGameObjectWithTag("RoomEntrance").transform;
         productDropZone = GameObject.FindGameObjectWithTag("ClientOrderTargetPosition");
         target_pos = target[current].position;
