@@ -22,6 +22,7 @@ public class ContentFinder : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(other);
+        if (other.GetComponent<ProductType>() == null) { return; }
         if (other.GetComponent<ProductType>().type == Product.Oil)
         {
             oilCount++;
@@ -34,6 +35,7 @@ public class ContentFinder : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.GetComponent<ProductType>() == null) { return; }
         if (other.GetComponent<ProductType>().type == Product.Oil)
         {
             oilCount--;
@@ -46,6 +48,7 @@ public class ContentFinder : MonoBehaviour {
 
     public Product getContentType()
     {
+        Debug.Log("Call getContentType()");
         if (oilCount > 5 || beerCount > 5)
         {
             if (beerCount >= oilCount)

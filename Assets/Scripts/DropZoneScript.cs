@@ -10,6 +10,11 @@ public class DropZoneScript : MonoBehaviour {
         //Debug.Log(C.gameObject.tag);
         if (C.gameObject.tag == "Product")
         {
+            if (C.gameObject.GetComponent<ProductType>().type == Product.Glass || C.gameObject.GetComponent<ProductType>().type == Product.Beer || C.gameObject.GetComponent<ProductType>().type == Product.Oil)
+            {
+                C.gameObject.GetComponent<ProductType>().type = C.gameObject.GetComponentInChildren<ContentFinder>().getContentType();
+
+            }
             //Debug.Log("I contain something");
             if (!contains.Contains(C.gameObject)) { contains.Add(C.gameObject); }
         }
@@ -54,14 +59,15 @@ public class DropZoneScript : MonoBehaviour {
     public void RemoveProductOfType(Product type)
     {
         GameObject c;
-        if (type == Product.Beer ||type == Product.Oil)
+        c = contains.Find(comp => comp.GetComponent<ProductType>().type == type);
+        /**if (type == Product.Beer ||type == Product.Oil)
         {
             c = contains.Find(comp => comp.GetComponent<ProductType>().type == Product.Glass);
         }
         else
         {
             c = contains.Find(comp => comp.GetComponent<ProductType>().type == type);
-        }
+        }*/
         TakeAway(c);
         Destroy(c.gameObject);
     }
