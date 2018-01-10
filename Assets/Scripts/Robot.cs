@@ -78,7 +78,7 @@ public class Robot : MonoBehaviour {
 
                 // Give a tip if service was fast 
                 gameController.addToScore(5 + System.Math.Min(time, 10));
-                StartCoroutine(SayThanksAndLeave());
+                StartCoroutine(TalkAndLeave("Thanks !",3f));
             }
 
             //Check there is a delivered product
@@ -90,7 +90,7 @@ public class Robot : MonoBehaviour {
                 // Give a tip if service was fast 
                 gameController.addToScore(5+ System.Math.Min(time,10));
                 productDropZone.GetComponent<DropZoneScript>().RemoveProductOfType(productWanted);
-                StartCoroutine(SayThanksAndLeave());
+                StartCoroutine(TalkAndLeave("Thanks !",3f));
             }
         }
         else // Go back to the room entrance
@@ -124,15 +124,15 @@ public class Robot : MonoBehaviour {
 	}
 
     // Say thanks, wait 3s then leave
-    IEnumerator SayThanksAndLeave()
+    IEnumerator TalkAndLeave(string speach, float waitTime)
     {
         gameObject.GetComponentInChildren<Image>().enabled = false;
         gameObject.GetComponentInChildren<Text>().enabled = true;
-        gameObject.GetComponentInChildren<Text>().text = "Thanks !";
+        gameObject.GetComponentInChildren<Text>().text = speach;
 
         //canvas.GetComponent<Text>().text = "Thank you !";
         //canvas.GetComponent<Text>().enabled = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(waitTime);
         exiting = true;
     }
 
@@ -157,7 +157,7 @@ public class Robot : MonoBehaviour {
         }
         if(exiting == false)
         {
-            exiting = true;
+            StartCoroutine(TalkAndLeave("Too late...", 2f));
         }
     }
 
