@@ -11,7 +11,7 @@ public class Spaceship : MonoBehaviour {
 	void Start () {
         int s = Mathf.RoundToInt(Random.Range(1, NB_POS));
         start = GameObject.Find("pos" + s.ToString()).transform;
-        Debug.Log("pos" + s.ToString());
+        //Debug.Log("pos" + s.ToString());
         int e = Mathf.RoundToInt(Random.Range(1, NB_POS));
         while (e == s)
         {

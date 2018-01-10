@@ -25,6 +25,7 @@ public class DropZoneScript : MonoBehaviour {
        foreach (GameObject c in contains){
             if(c.GetComponent<ProductType>().type == p )
             {
+                Debug.Log(this.gameObject.name + " contains " + c.GetComponent<ProductType>().type.ToString());
                 return true;
             }
 
