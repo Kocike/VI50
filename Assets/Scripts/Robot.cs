@@ -19,7 +19,11 @@ public class Robot : MonoBehaviour {
     private GameObject productDropZone;
     public GameController gameController;
 
-    private bool exiting;
+
+    public int maxWaitTime = 30; //Time before the client leaves
+    private int time;
+
+    private bool exiting = false;
     private int current;
 
     // Use this for initialization
@@ -35,46 +39,42 @@ public class Robot : MonoBehaviour {
         target_pos.y = transform.position.y;
         exiting = false;
 
+        StartTimer();
 
         //Pick a random product > 2 car on ne veut pas de verre vide ni de burger pas cuit
         productWanted = (Product)(Random.Range(2, System.Enum.GetNames(typeof(Product)).Length));
         //Debug.Log(productWanted);
-        gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Sprites/"+productWanted);
-       /** switch (productWanted)
-        {
-            case Product.Beer:
-                gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Sprites/beer");
-                break;
-            case Product.Burger:
-                gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Sprites/burger");
-                break;
-            case Product.Oil:
-                gameObject.GetComponentInChildren<UnityEngine.UI.Image>().sprite = Resources.Load<Sprite>("Sprites/oil");
-                break;
-        }*/
+        gameObject.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/"+productWanted);
+
     }
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (!exiting)
         {
-            hasProductWanted = true;
-            gameController.addToScore(1);
-            //Debug.Log("K !");
-            StartCoroutine(SayThanksAndLeave());
-        }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                hasProductWanted = true;
+                StopCoroutine("timer");
 
-        //Check there is a delivered product
-        if (productDropZone.GetComponent<DropZoneScript>().HasProduct(productWanted))
-        {
-            hasProductWanted = true;
-            gameController.addToScore(1);
-            productDropZone.GetComponent<DropZoneScript>().RemoveProductOfType(productWanted);
-            StartCoroutine(SayThanksAndLeave());
-        }
+                // Give a tip if service was fast 
+                gameController.addToScore(5 + System.Math.Min(time, 10));
+                StartCoroutine(SayThanksAndLeave());
+            }
 
-        // Go back to the room entrance
-        if (exiting)
+            //Check there is a delivered product
+            if (productDropZone.GetComponent<DropZoneScript>().HasProduct(productWanted))
+            {
+                hasProductWanted = true;
+                StopCoroutine("timer");
+
+                // Give a tip if service was fast 
+                gameController.addToScore(5+ System.Math.Min(time,10));
+                productDropZone.GetComponent<DropZoneScript>().RemoveProductOfType(productWanted);
+                StartCoroutine(SayThanksAndLeave());
+            }
+        }
+        else // Go back to the room entrance
         {
             target = new Transform[] { roomEntrance };
             target_pos = target[current].position;
@@ -104,10 +104,9 @@ public class Robot : MonoBehaviour {
         }
 	}
 
+    // Say thanks, wait 3s then leave
     IEnumerator SayThanksAndLeave()
     {
-        //Debug.Log("Thanks");
-
         gameObject.GetComponentInChildren<Image>().enabled = false;
         gameObject.GetComponentInChildren<Text>().enabled = true;
         gameObject.GetComponentInChildren<Text>().text = "Thanks !";
@@ -115,9 +114,34 @@ public class Robot : MonoBehaviour {
         //canvas.GetComponent<Text>().text = "Thank you !";
         //canvas.GetComponent<Text>().enabled = true;
         yield return new WaitForSeconds(3f);
-       // Debug.Log("Bye !");
         exiting = true;
     }
+
+    private void StartTimer()
+    {
+        time = maxWaitTime;
+        StartCoroutine("timer");
+    }
+
+    private int StopTimer()
+    {
+        StopCoroutine("timer");
+        return time;
+    }
+
+    private IEnumerator timer()
+    {
+        while(time > 0)
+        {
+            time--;
+            yield return new WaitForSeconds(1f);
+        }
+        if(exiting == false)
+        {
+            exiting = true;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
