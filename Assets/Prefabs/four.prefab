@@ -981,7 +981,7 @@ MonoBehaviour:
   door_ctrl: {fileID: 114034913781414880}
   ToCook: 1
   Cooked: 2
-  CookingTime: 4
+  cookingTime: 4
   button: {fileID: 114874103722987116}
   contains: []
 --- !u!114 &114874103722987116
