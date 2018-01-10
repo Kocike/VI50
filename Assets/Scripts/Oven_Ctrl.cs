@@ -12,6 +12,7 @@ public class Oven_Ctrl : MonoBehaviour
     private bool isCooking=false;
     public float CookingTime;
     public Button_Ctrl button;
+    //public AudioSource ding;
     [HideInInspector]
     public List<GameObject> contains = new List<GameObject>();
 
@@ -92,6 +93,7 @@ public class Oven_Ctrl : MonoBehaviour
         isCooking = false;
         door_ctrl.STOP = false;
         button.Unpressed();
+       // ding.Play();
 
     }
 
