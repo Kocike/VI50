@@ -38,7 +38,6 @@ public class Robot : MonoBehaviour {
 
         // Pick a random (free) client position
         var positions = new List<GameObject>(GameObject.FindGameObjectsWithTag("ClientPosition"));
-
         foreach (GameObject pos in Shuffle(positions))
         {
             //Debug.Log(pos.ToString());
@@ -48,14 +47,13 @@ public class Robot : MonoBehaviour {
                 target = new Transform[] { pos.transform };
                 //Debug.Log(target);
                 targetObject = pos;
+                productDropZone = pos.transform.GetChild(0).gameObject;
                 break;
             }
         }
 
-
         //target = new Transform[] { GameObject.FindGameObjectWithTag("ClientPosition").transform };
-        roomEntrance = GameObject.FindGameObjectWithTag("RoomEntrance").transform;
-        productDropZone = GameObject.FindGameObjectWithTag("ClientOrderTargetPosition");
+        roomEntrance = GameObject.FindGameObjectWithTag("RoomEntrance").transform;        
         target_pos = target[current].position;
         target_pos.y = transform.position.y;
         exiting = false;
