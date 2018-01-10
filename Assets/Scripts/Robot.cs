@@ -21,7 +21,7 @@ public class Robot : MonoBehaviour {
     public Product productWanted;
     private GameObject productDropZone;
     public GameController gameController;
-
+    Random rnd = new Random();
 
     public int maxWaitTime = 30; //Time before the client leaves
     private int time;
@@ -37,15 +37,16 @@ public class Robot : MonoBehaviour {
         canvas.enabled = false;
 
         // Pick a random (free) client position
-        var positions = GameObject.FindGameObjectsWithTag("ClientPosition");
-        foreach (GameObject pos in positions)
+        var positions = new List<GameObject>(GameObject.FindGameObjectsWithTag("ClientPosition"));
+
+        foreach (GameObject pos in Shuffle(positions))
         {
             //Debug.Log(pos.ToString());
             if (pos.GetComponent<ClientPosition>().IsFree())
             {
                 pos.GetComponent<ClientPosition>().setClient(this);
                 target = new Transform[] { pos.transform };
-                Debug.Log(target);
+                //Debug.Log(target);
                 targetObject = pos;
                 break;
             }
@@ -176,5 +177,19 @@ public class Robot : MonoBehaviour {
         {
             canvas.enabled = false;
         }
+    }
+
+    public IList<T> Shuffle<T>(IList<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0,n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
+        return list;
     }
 }
