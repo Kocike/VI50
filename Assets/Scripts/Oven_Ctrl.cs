@@ -23,7 +23,6 @@ public class Oven_Ctrl : MonoBehaviour
             //Debug.Log("I contain something");
             if (!contains.Contains(C.gameObject)) { contains.Add(C.gameObject); }
         }
-        Unlock_test();
     }
 
     private void TakeAway(GameObject other)
@@ -48,10 +47,7 @@ public class Oven_Ctrl : MonoBehaviour
 
     void Unlock_test()
     {
-        if (door_ctrl.closed && HasProduct(ToCook))
-        {
-            button.Locked = false;
-        }
+        button.Locked = !(door_ctrl.closed && HasProduct(ToCook));
     }
 
     // Update is called once per frame
@@ -60,6 +56,10 @@ public class Oven_Ctrl : MonoBehaviour
         if (isCooking)
         {
             timer += Time.deltaTime;
+        }
+        else
+        {
+            Unlock_test();
         }
         if (timer >= CookingTime)
         {

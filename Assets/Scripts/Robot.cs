@@ -23,7 +23,7 @@ public class Robot : MonoBehaviour {
     public GameController gameController;
     Random rnd = new Random();
 
-    public int maxWaitTime = 30; //Time before the client leaves
+    public int maxWaitTime = 50; //Time before the client leaves
     private int time;
 
     private bool exiting = false;
