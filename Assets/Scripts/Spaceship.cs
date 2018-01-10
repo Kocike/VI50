@@ -6,16 +6,16 @@ public class Spaceship : MonoBehaviour {
     private Transform start;
     private Transform end;
     public GameObject prefab;
-    private int NB_POS = 4;
+    private int nbPos = 4;
 	// Use this for initialization
 	void Start () {
-        int s = Mathf.RoundToInt(Random.Range(1, NB_POS));
+        int s = Mathf.RoundToInt(Random.Range(1, nbPos));
         start = GameObject.Find("pos" + s.ToString()).transform;
         //Debug.Log("pos" + s.ToString());
-        int e = Mathf.RoundToInt(Random.Range(1, NB_POS));
+        int e = Mathf.RoundToInt(Random.Range(1, nbPos));
         while (e == s)
         {
-            e = Mathf.RoundToInt(Random.Range(1, NB_POS));
+            e = Mathf.RoundToInt(Random.Range(1, nbPos));
         }
         end = GameObject.Find("pos" + e.ToString()).transform;
         this.gameObject.transform.position = start.position;
