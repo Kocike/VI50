@@ -85,11 +85,12 @@ public class Robot : MonoBehaviour {
             if (productDropZone.GetComponent<DropZoneScript>().HasProduct(productWanted))
             {
                 hasProductWanted = true;
+                Debug.Log("Has product wanted");
                 StopCoroutine("timer");
 
                 // Give a tip if service was fast 
                 gameController.addToScore(5+ System.Math.Min(time,10));
-                productDropZone.GetComponent<DropZoneScript>().RemoveProductOfType(productWanted);
+                
                 StartCoroutine(TalkAndLeave("Thanks !",3f));
             }
         }
@@ -133,6 +134,7 @@ public class Robot : MonoBehaviour {
         //canvas.GetComponent<Text>().text = "Thank you !";
         //canvas.GetComponent<Text>().enabled = true;
         yield return new WaitForSeconds(waitTime);
+        productDropZone.GetComponent<DropZoneScript>().RemoveProductOfType(productWanted);
         exiting = true;
     }
 

@@ -25,6 +25,16 @@ public class Oven_Ctrl : MonoBehaviour
         }
     }
 
+    void OnTriggerExit(Collider C)
+    {
+        //Debug.Log(C.gameObject.tag);
+        if (C.gameObject.tag == "Product")
+        {
+            //Debug.Log("I contain something");
+            if (contains.Contains(C.gameObject)) { contains.Remove(C.gameObject); }
+        }
+    }
+
     private void TakeAway(GameObject other)
     {
         if (contains.Contains(other.gameObject))
